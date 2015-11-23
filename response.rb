@@ -4,7 +4,7 @@ class Response
 	:importance_syria, :importance_local_region, :when_maps_used, :map_organizations,
 	:digital_maps
 	def initialize(data)
-		@timestamp = data.first
+		@timestamp = data.shift
 		@name = data.pop
 		@id = data.shift
 		@age = data.shift
@@ -15,7 +15,7 @@ class Response
 		@importance_daily_life = data.shift
 		@importance_syria = data.shift
 		@importance_local_region = data.shift
-		
+		@digital_maps = data.pop.split("-")
 		binding.pry
 	end 
 
